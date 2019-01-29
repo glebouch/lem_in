@@ -6,13 +6,60 @@ int		ft_min_int(int a, int b)
 	return (b);
 }
 
+//init un tab de int qui a a 0 la salle start, 1 l'index 1ere salle 
+int *ft_init(int n)
+{
+	int *tab;
+	int i = 0;
 
-
+	if (!(tab = (int *)malloc(sizeof(int) * n)))
+		return (NULL);
+	while (i < n)
+	{
+		tab[i] = -1;
+		i++;
+	}
+	return (tab);
+}
 
 
 int		ft_search_path(t_data *data, char *path_i, int *tab_index)
 {
-	int i = 0;
+	int i = start;
+	int j = 1;
+
+	int *tab_path_n_piece;
+	int *tab_index_pipe_to_try;
+
+	tab_path_n_piece = ft_init(infos->nb_of_box);
+	tab_index_pipe_to_try = ft_init(infos->nb_of_box);
+
+	tab_path_n_piece[0] = start;
+	while (infos->data[i]->commands != 2)
+	{
+		j = 0;
+		while (j < tab_index_pipe_to_try[j])
+		{
+			if (ft_check_precedents(tab_path_n_piece, infos->data[info->data[i]->pipe[tab_index_pipe_to_try[j]]]->n_piece))
+			{
+				tab_path_n_piece[j] = infos->data[info->data[i]->pipe[tab_index_pipe_to_try[j]]]->n_piece;
+				i = tab_path_n_piece[j];
+				j++;
+			}
+			else
+				tab_index_pipe_to_try[j]++;
+		}
+		tab_path_n_piece[i] = t_info->data[start]->n_piece;
+	}
+
+
+
+
+
+
+
+
+
 
 //	if (path_i)
 //		ft_strcat(path_i, "\n")
