@@ -149,7 +149,7 @@ int		ft_init_path(t_infos *infos, int nb_path_max)
 	return (1);
 }
 
-int		algo(t_infos *infos)
+int		ft_algo(t_infos *infos)
 {
 	int i = 0;
 	int nb_path_max = 0;

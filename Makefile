@@ -18,9 +18,9 @@ SRC =	srcs/main.c\
 		srcs/list_chain.c\
 		srcs/algo.c
 
-LIB = libft/libft.a
+LIB = ./libft/libft.a
 
-OBJET = $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 INCLUDES = includes
 
@@ -34,11 +34,12 @@ arg_3 = 0
 
 all : $(NAME)
 
-$(OBJET):$(INCLUDES)
-
-$(NAME) : $(OBJET)
+$(NAME) : $(OBJ)
 	@make -C libft
-	$(CC) $(CFLAGS) -o $@ $(LIB) $(OBJET)
+	$(CC) $(CFLAGS) -o $@ $^ $(LIB)
+
+%.o : %.c
+	$(CC) -o $@ -c $< $(FLAGS) -I $(INCLUDES)
 
 exe : $(NAME)
 ifeq ($(arg), correct)

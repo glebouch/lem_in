@@ -13,13 +13,13 @@
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# include <limits.h>
-# include <errno.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include "../libft/includes/libft.h"
 # include "../libft/includes/get_next_line.h"
 # include "../libft/includes/ft_printf.h"
+# include <limits.h>
+# include <errno.h>
 
 typedef struct          s_file
 {
@@ -77,6 +77,6 @@ t_file                  *add_file(t_file *file, char *line);
 /*
 **          algo.c
 */
-int     algo(t_infos *infos);
+int     ft_algo(t_infos *infos);
 
 #endif

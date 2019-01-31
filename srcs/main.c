@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "lem-in.h"
+# include "../libft/includes/libft.h"
+# include "../libft/includes/get_next_line.h"
+# include "../libft/includes/ft_printf.h"
 
 int         retour_check_file(t_infos *infos, t_file *head, int retour)
 {
@@ -415,6 +418,7 @@ int         main(int argc, char **argv)
     ft_put_list(infos.file);
     ft_fprintf("OK\n", 1);
     ft_fprintf("\\-------------------------------------------/\n\n\n", 2);
+    ft_algo(&infos);
     return (0);
 }
 
